@@ -16,6 +16,10 @@
 .menu img {
   height: 70px;
 }
+
+.menu img:hover {
+  cursor: pointer;
+}
 .menu button {
   border: none;
   background-color: #01a0dc;
