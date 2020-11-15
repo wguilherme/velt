@@ -23,7 +23,18 @@ const companySchema = mongoose.Schema({
     },
 
     social:{
-        type: Object,
+        facebook:{
+            type: String
+        },
+        instagram:{
+            type: String
+        },
+        twitter:{
+            type: String
+        },
+        youtube:{
+            type: String
+        },
     },
 
     financial:{

@@ -2,6 +2,8 @@ import Company from "../../models/Company";
 import googleTrends from 'google-trends-api';
 import yahooFinance from 'yahoo-finance'
 
+import puppeteer from 'puppeteer'
+
 // utils
 import compareFinance from "../../utils/compareFinance"
 
@@ -38,11 +40,12 @@ module.exports = {
 
             const testeSocial = JSON.parse(await googleTrends.interestOverTime({
                 keyword: req.body.name, 
-                // startTime: new Date('2020-01-01'), 
+                startTime: new Date('2020-01-01'),
+                // endTime: ,
                 geo: 'BR'
             }).then(res => res)).default.timelineData.map(item => {
                 return {
-                    date: item.formattedAxisTime,
+                    date: item.time,
                     value: item.value[0]
                 }
             })
@@ -50,7 +53,8 @@ module.exports = {
             const testFinancial = await yahooFinance.historical({
                 symbol: 'MGLU3.SA',
                 from: '2020-01-01',
-                period:'m'
+                // to:,
+                period:'m',
             }).then(res => res).map(item => {
                 return {
                     exchange: item.symbol,
@@ -59,10 +63,30 @@ module.exports = {
                 }
             })
 
-            // const testComercial
+            
+            
+            const browser = await puppeteer.launch()
+            const page = await browser.newPage()
+            await page.goto('https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/')
+
+            const testComercial = await page.evaluate(() => {
+            
+                const myObj = {}
+                const itens = []
+                document.querySelectorAll('.jlKsPk span').forEach(item => itens.push(item.textContent))
+            
+                myObj['rr'] = itens[0]
+                myObj['vfn'] = itens[1]
+                myObj['is'] = itens[2]
+                myObj['nc'] = itens[3]
+            
+                return myObj
+            })
+
+            
 
 
-            res.status(201).send({ testeSocial,testFinancial });
+            res.status(201).send({ testeSocial,testFinancial,testComercial });
 
         } catch (error) {
             res.status(400).send(error);
