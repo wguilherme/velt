@@ -7,8 +7,10 @@ const router = express.Router();
 // rota de criação
 router.post("/companies", Company.create);
 
-// rota de listagem
+// index companies
 router.get("/companies", Company.list);
+// show company
+router.get("/companies/:id", Company.show);
 
 // compare route
 router.get("/companies/compare/:id1/:id2", Company.compare);

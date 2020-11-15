@@ -39,7 +39,7 @@ module.exports = {
         try {
 
             const testeSocial = JSON.parse(await googleTrends.interestOverTime({
-                keyword: req.body.name, 
+                keyword: req.body.name,
                 startTime: new Date('2020-01-01'),
                 // endTime: ,
                 geo: 'BR'
@@ -63,27 +63,27 @@ module.exports = {
                 }
             })
 
-            
-            
+
+
             const browser = await puppeteer.launch()
             const page = await browser.newPage()
             await page.goto('https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/')
 
             const testComercial = await page.evaluate(() => {
-            
+
                 const myObj = {}
                 const itens = []
                 document.querySelectorAll('.jlKsPk span').forEach(item => itens.push(item.textContent))
-            
+
                 myObj['rr'] = itens[0]
                 myObj['vfn'] = itens[1]
                 myObj['is'] = itens[2]
                 myObj['nc'] = itens[3]
-            
+
                 return myObj
             })
 
-            
+
 
 
             res.status(201).send({ testeSocial,testFinancial,testComercial });
@@ -100,6 +100,12 @@ module.exports = {
         const company = await Company.find();
         res.json(company);
 
+        const status = company ? 200 : 400;
+        return res.status(status).json(company);
+    },
+
+    show: async (req, res) => {
+        const company = await Company.findById(req.params.id);
         const status = company ? 200 : 400;
         return res.status(status).json(company);
     },
