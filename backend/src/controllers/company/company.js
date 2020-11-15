@@ -2,6 +2,9 @@ import Company from "../../models/Company";
 import googleTrends from 'google-trends-api';
 import User from "../../models/User";
 
+// utils
+import compareFinance from "../../utils/compareFinance"
+
 // const User = require('../../models/User')
 
 module.exports = {
@@ -65,5 +68,22 @@ module.exports = {
         res.json(result)
 
 
+    },
+
+    compare: async(req, res)=> {
+
+
+        const {id1, id2} = req.params;
+
+        console.log('entrou');
+        const company1 = await Company.findById(id1)
+        const company2 = await Company.findById(id2)
+
+        const result = await compareFinance(company1, company2);
+
+        company1.ranking = result.company1;
+        company2.ranking = result.company1;
+
+        res.status(200).json(result);
     }
 };

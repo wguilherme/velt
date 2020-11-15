@@ -7,8 +7,11 @@ const router = express.Router();
 // rota de criação
 router.post("/companies", Company.create);
 
-// rota de criação
+// rota de listagem
 router.get("/companies", Company.list);
+
+// compare route
+router.get("/companies/compare/:id1/:id2", Company.compare);
 
 
 export default router;
