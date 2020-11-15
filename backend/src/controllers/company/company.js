@@ -2,7 +2,9 @@ import Company from "../../models/Company";
 import googleTrends from 'google-trends-api';
 import yahooFinance from 'yahoo-finance'
 
-// import User from "../../models/User";
+// utils
+import compareFinance from "../../utils/compareFinance"
+
 // const User = require('../../models/User')
 
 module.exports = {
@@ -40,12 +42,12 @@ module.exports = {
                 geo: 'BR'
             }).then(res => res)).default.timelineData.map(item => {
                 return {
-                    date: item.time,
+                    date: item.formattedAxisTime,
                     value: item.value[0]
                 }
             })
     
-            const testFinantial = await yahooFinance.historical({
+            const testFinancial = await yahooFinance.historical({
                 symbol: 'MGLU3.SA',
                 from: '2020-01-01',
                 period:'m'
@@ -60,7 +62,7 @@ module.exports = {
             // const testComercial
 
 
-            res.status(201).send({ testeSocial,testFinantial });
+            res.status(201).send({ testeSocial,testFinancial });
 
         } catch (error) {
             res.status(400).send(error);
@@ -92,5 +94,22 @@ module.exports = {
         res.json(result)
 
 
+    },
+
+    compare: async(req, res)=> {
+
+
+        const {id1, id2} = req.params;
+
+        console.log('entrou');
+        const company1 = await Company.findById(id1)
+        const company2 = await Company.findById(id2)
+
+        const result = await compareFinance(company1, company2);
+
+        company1.ranking = result.company1;
+        company2.ranking = result.company1;
+
+        res.status(200).json(result);
     }
 };
