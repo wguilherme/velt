@@ -1,10 +1,10 @@
 import yahooFinance from 'yahoo-finance'
 import {format} from 'date-fns'
 
-let financialGet = async (name,fromDate,toDate) => {
+let financialGet = async (exchange,fromDate,toDate) => {
 
     const testFinancial = await yahooFinance.historical({
-        symbol: 'MGLU3.SA',
+        symbol: exchange,
         from: fromDate,
         // to: toDate,
         period:'m',
@@ -16,12 +16,12 @@ let financialGet = async (name,fromDate,toDate) => {
         }
     })
 
-    return testFinancial[2]
+    return testFinancial[1]
 
-    return{
-        recent: testFinancial[2],
-        old: testFinancial[testFinancial.length - 1]
-    }
+    // return{
+    //     recent: testFinancial[2],
+    //     old: testFinancial[testFinancial.length - 1]
+    // }
 
 }
 

@@ -21,7 +21,7 @@ let getComercial = async (link) => {
         return await myObj
     })
 
-    return testComercial
+    return await testComercial
 
 }
 
