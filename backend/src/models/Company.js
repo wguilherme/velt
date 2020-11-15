@@ -6,6 +6,22 @@ const companySchema = mongoose.Schema({
         required: true
     },
 
+    cnpj: {
+        type: Number,
+        required: true
+    },
+
+    socios: {
+        type: Object,
+        required: true
+    },
+
+    ramo: {
+        type: String,
+        enum: ['e-commerce','finantials'],
+        required: true
+    },
+
     social:{
         type: Object,
     },
