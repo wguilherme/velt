@@ -1,4 +1,3 @@
-
 <div class="menu">
   <section>
     <img class="img-fluid" src="https://velt.com/img/velt_partners-negativo-rgb-01.svg" alt="Logotipo Velt">
@@ -12,18 +11,21 @@
 <div class="content">
   <section>
     <div class="row">
-      <div *ngFor="let x of companies"class="col">
+      <div *ngFor="let company of companies" class="col-sm-4">
+
         <div class="cartao">
-          <div class="cartao-header">
+          <section>
             <button>Comparar</button>
             <button>Seguir</button>
-          </div>
-          <h3>Mercado Livre</h3>
+          </section>
+
+          <h3>{{company.name}}</h3>
           <div class="cartao-content">
             <div>
               <p>
-                Nota geral<br>79
+                Nota geral
               </p>
+              <h3>93</h3>
             </div>
             <div>
               <span></span>
@@ -40,7 +42,7 @@
 
             <div class="cartao-trend financeiro">
 
-              <div><img src="https://via.placeholder.com/25x25" alt=""></div>
+              <div><img src="/assets/financeiro.svg" alt=""></div>
               <div>
                 <p>+32%<br>Financeiro</p>
               </div>
@@ -54,21 +56,21 @@
 
             <div class="cartao-trend social">
 
-              <div><img src="https://via.placeholder.com/25x25" alt=""></div>
+              <div><img src="/assets/social.svg" alt=""></div>
               <div>
-                <p>+32%<br>Financeiro</p>
+                <span>+32%<br>Financeiro</span>
               </div>
-              <div>
+              <!-- <div>
                 <p style="font-size: 30px;">
                   <span style="font-size: 15px;">#</span>1
                 </p>
-              </div>
+              </div> -->
 
             </div>
 
             <div class="cartao-trend comercial">
 
-              <div><img src="https://via.placeholder.com/25x25" alt=""></div>
+              <div><img src="/assets/comercial.svg"alt=""></div>
               <div>
                 <p class="text-left">+32%<br>Financeiro</p>
               </div>

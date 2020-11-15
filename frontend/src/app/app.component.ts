@@ -1,3 +1,4 @@
+import { compileInjectable } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { ApiService } from './services/api.service';
 @Component({
@@ -11,12 +12,16 @@ export class AppComponent {
 
 
 
+
+
 constructor(
   private apiService: ApiService
 ) {
 }
 
 ngOnInit() {
+
+
 
 
 this.apiService.getCompanies().subscribe(data => this.companies = data);
