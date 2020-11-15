@@ -47,8 +47,8 @@ module.exports = {
             const company = await Company.findById(id)
 
             // Date filter
-            const fromDate = new Date('2019-10-01')
-            const toDate = new Date('2020-10-01')
+            const fromDate = new Date('2019-06-01')
+            const toDate = new Date('2020-06-31')
 
             // get attributes
             const financial = await getFinancial(company.info.ativo,fromDate,toDate)
@@ -63,7 +63,7 @@ module.exports = {
             await company.save();
 
             // send response
-            res.status(201).send(company);
+            res.status(201).send({financial,social,comercial});
 
         } catch (error) {
             res.status(400).send(error);
@@ -100,7 +100,6 @@ module.exports = {
 
         const {id1, id2} = req.params;
 
-        console.log('entrou');
         const company1 = await Company.findById(id1)
         const company2 = await Company.findById(id2)
 
@@ -108,14 +107,20 @@ module.exports = {
         const result2 = await compareSocial(company1, company2);
         const result3 = await compareComerce(company1, company2);
 
-        company1.rankings.financial = result.company1;
-        company2.rankings.financial = result.company2;
+        company1.rankings.financial.value = result.company1;
+        company1.rankings.financial.variation = result.perctg1;
+        company2.rankings.financial.value = result.company2;
+        company2.rankings.financial.variation = result.perctg2;
 
-        company1.rankings.social = result2.company1;
-        company2.rankings.social = result2.company2;
+        company1.rankings.social.value = result2.company1;
+        company1.rankings.social.variation = result2.perctg1;
+        company2.rankings.social.value = result2.company2;
+        company2.rankings.social.variation = result2.perctg2;
 
-        company1.rankings.comercial = result2.company1;
-        company2.rankings.comercial = result2.company2;
+        company1.rankings.comercial.value = result3.company1;
+        company1.rankings.comercial.variation = result3.perctg1;
+        company2.rankings.comercial.value = result3.company2;
+        company2.rankings.comercial.variation = result3.perctg2;
 
         // save company
         await company1.save();

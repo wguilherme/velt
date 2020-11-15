@@ -6,7 +6,7 @@ let financialGet = async (exchange,fromDate,toDate) => {
     const testFinancial = await yahooFinance.historical({
         symbol: exchange,
         from: fromDate,
-        // to: toDate,
+        to: toDate,
         period:'m',
     }).then(res => res).map(item => {
         return {
@@ -16,12 +16,12 @@ let financialGet = async (exchange,fromDate,toDate) => {
         }
     })
 
-    return testFinancial[1]
+    // return testFinancial[1]
 
-    // return{
-    //     recent: testFinancial[2],
-    //     old: testFinancial[testFinancial.length - 1]
-    // }
+    return {
+        new: testFinancial[0],
+        old: testFinancial[testFinancial.length - 1]
+    }
 
 }
 

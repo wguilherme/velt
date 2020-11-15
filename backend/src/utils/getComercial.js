@@ -9,14 +9,22 @@ let getComercial = async (link) => {
 
     const testComercial = await page.evaluate(async () => {
     
-        const myObj = {}
+        const myObj = {
+            new:{},
+            old:{}
+        }
         const itens = []
-        document.querySelectorAll('.jlKsPk span').forEach(item => itens.push(item.textContent))
+        await document.querySelectorAll('.jlKsPk span').forEach(item => itens.push(item.textContent))
     
-        myObj['rr'] = itens[0]
-        myObj['vfn'] = itens[1]
-        myObj['is'] = itens[2]
-        myObj['nc'] = itens[3]
+        myObj.new['rr'] = itens[0]
+        myObj.new['vfn'] = itens[1]
+        myObj.new['is'] = itens[2]
+        myObj.new['nc'] = itens[3]
+
+        myObj.old['rr'] = '93.4%'
+        myObj.old['vfn'] = '72.3%'
+        myObj.old['is'] = '90.5%'
+        myObj.old['nc'] = '7.2'
     
         return await myObj
     })

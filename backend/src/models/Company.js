@@ -56,11 +56,21 @@ const companySchema = mongoose.Schema({
     },
 
     rankings: {
-        financial: {type: Number},
-        social: {type: Number},
-        comercial: {type: Number},
+        financial: {
+            value: {type: Number},
+            variation: {type: Number},
+        },
+        social:{
+            value: {type: Number},
+            variation: {type: Number},
+        }, 
+        comercial: {
+            value: {type: Number},
+            variation: {type: Number},
+        },
+
         // governança: {type: Number},
-        extra: {type: Number},
+        // extra: {type: Number},
     },
 
     createdAt: {

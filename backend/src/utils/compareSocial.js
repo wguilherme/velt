@@ -1,12 +1,17 @@
 
 let compareSocial = async (company1, company2) => {
 
-    const value1 = company1.social.value;
-    const value2 = company2.social.value;
+    const value1 = company1.social.new.value;
+    const value2 = company2.social.new.value;
+
+    const perctg1 = ((company1.social.new.value - company1.social.old.value)/company1.social.old.value)*100
+    const perctg2 = ((company2.social.new.value - company2.social.old.value)/company2.social.old.value)*100
 
     const companiesRanking = {
         company1,
-        company2
+        company2,
+        perctg1,
+        perctg2,
     }
 
 
