@@ -12,6 +12,8 @@ export class ApiService {
 
   apiBaseUrl =  "http://localhost:3005"
 
+  companies:any = [];
+
   constructor(private http: HttpClient) { }
 
    getCompanies(){
