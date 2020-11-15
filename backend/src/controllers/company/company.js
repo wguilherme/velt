@@ -19,7 +19,7 @@ module.exports = {
                 ramo: req.body.ramo,
             })
 
-            // save pet
+            // save company
             // await company.save();
 
 
@@ -37,8 +37,8 @@ module.exports = {
         try {
 
             const testeSocial = JSON.parse(await googleTrends.interestOverTime({
-                keyword: req.body.name, 
-                // startTime: new Date('2020-01-01'), 
+                keyword: req.body.name,
+                // startTime: new Date('2020-01-01'),
                 geo: 'BR'
             }).then(res => res)).default.timelineData.map(item => {
                 return {
@@ -46,7 +46,7 @@ module.exports = {
                     value: item.value[0]
                 }
             })
-    
+
             const testFinancial = await yahooFinance.historical({
                 symbol: 'MGLU3.SA',
                 from: '2020-01-01',
@@ -69,7 +69,7 @@ module.exports = {
             console.log(error)
         }
 
-    },    
+    },
 
     list: async (req, res) => {
 
@@ -80,21 +80,7 @@ module.exports = {
         return res.status(status).json(company);
     },
 
-    search: async (req, res) => {
-        res.json("Search route");
-    },
 
-    searchAnimal: async (req, res) => {
-
-
-        const animal = req.body.animal;
-
-        const result = await Pet.find({animal: animal});
-
-        res.json(result)
-
-
-    },
 
     compare: async(req, res)=> {
 
