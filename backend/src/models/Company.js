@@ -6,6 +6,18 @@ const companySchema = mongoose.Schema({
         required: true
     },
 
+    social:{
+        type: Object,
+    },
+
+    financial:{
+        type: Object,
+    },
+
+    comercial:{
+        type: Object,
+    },
+
     createdAt: {
         type: Date,
         default: Date.now,
