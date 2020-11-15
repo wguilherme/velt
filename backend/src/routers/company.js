@@ -14,7 +14,7 @@ router.get("/companies", Company.list);
 router.get("/companies/compare/:id1/:id2", Company.compare);
 
 // update route
-router.post("/companies/update", Company.update);
+router.patch("/companies/update", Company.update);
 
 
 
