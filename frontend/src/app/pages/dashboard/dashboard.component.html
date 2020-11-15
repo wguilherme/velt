@@ -13,11 +13,12 @@
     <div class="row">
       <div *ngFor="let company of companies" class="col-sm-4">
 
-        <div class="cartao" routerLink="/company">
+        <div class="cartao" routerLink="/company/{{company._id}}">
           <section>
             <button>Comparar</button>
             <button>Seguir</button>
           </section>
+
 
           <h3>{{company.name}}</h3>
           <div class="cartao-content">
