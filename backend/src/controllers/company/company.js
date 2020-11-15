@@ -1,11 +1,10 @@
 import Company from "../../models/Company";
-import googleTrends from 'google-trends-api';
-import yahooFinance from 'yahoo-finance'
-
-import puppeteer from 'puppeteer'
 
 // utils
 import compareFinance from "../../utils/compareFinance"
+import getFinancial from "../../utils/getFinancial"
+import getSocial from "../../utils/getSocial"
+import getComercial from "../../utils/getComercial"
 
 // const User = require('../../models/User')
 
@@ -37,55 +36,16 @@ module.exports = {
     update: async (req, res) => {
 
         try {
+            // Filter
+            const fromDate = new Date('2019-10-01')
+            const toDate = new Date('2020-10-01')
 
-            const testeSocial = JSON.parse(await googleTrends.interestOverTime({
-                keyword: req.body.name,
-                startTime: new Date('2020-01-01'),
-                // endTime: ,
-                geo: 'BR'
-            }).then(res => res)).default.timelineData.map(item => {
-                return {
-                    date: item.time,
-                    value: item.value[0]
-                }
-            })
+            // getAttributes
+            const testFinancial = await getFinancial(req.body.name,fromDate,toDate)
+            const testeSocial = await getSocial(req.body.name,fromDate,toDate)
+            const testComercial = await getComercial('https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/')
 
-            const testFinancial = await yahooFinance.historical({
-                symbol: 'MGLU3.SA',
-                from: '2020-01-01',
-                // to:,
-                period:'m',
-            }).then(res => res).map(item => {
-                return {
-                    exchange: item.symbol,
-                    date: item.date,
-                    closeValue: item.close
-                }
-            })
-
-
-
-            const browser = await puppeteer.launch()
-            const page = await browser.newPage()
-            await page.goto('https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/')
-
-            const testComercial = await page.evaluate(() => {
-
-                const myObj = {}
-                const itens = []
-                document.querySelectorAll('.jlKsPk span').forEach(item => itens.push(item.textContent))
-
-                myObj['rr'] = itens[0]
-                myObj['vfn'] = itens[1]
-                myObj['is'] = itens[2]
-                myObj['nc'] = itens[3]
-
-                return myObj
-            })
-
-
-
-
+            // send response
             res.status(201).send({ testeSocial,testFinancial,testComercial });
 
         } catch (error) {
