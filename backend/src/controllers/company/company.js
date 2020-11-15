@@ -36,14 +36,26 @@ module.exports = {
     update: async (req, res) => {
 
         try {
-            // Filter
+            const mercadoLivre = {
+                nome: "Mercado Livre",
+                ativo: "MELI",
+                reclameaqui: "https://www.reclameaqui.com.br/empresa/mercado-livre/" 
+            }
+
+            const magazineLuiza = {
+                nome: "Magazine Luiza",
+                ativo: "MGLU3.SA",
+                reclameaqui: "https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/"
+            }
+
+            // Date filter
             const fromDate = new Date('2019-10-01')
             const toDate = new Date('2020-10-01')
 
-            // getAttributes
-            const testFinancial = await getFinancial(req.body.name,fromDate,toDate)
-            const testeSocial = await getSocial(req.body.name,fromDate,toDate)
-            const testComercial = await getComercial('https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/')
+            // get attributes
+            const testFinancial = await getFinancial(magazineLuiza.ativo,fromDate,toDate)
+            const testeSocial = await getSocial(magazineLuiza.nome,fromDate,toDate)
+            const testComercial = await getComercial(magazineLuiza.reclameaqui,toDate)
 
             // send response
             res.status(201).send({ testeSocial,testFinancial,testComercial });
