@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="742" height="35" viewBox="0 0 742 35">
+  <g id="Grupo_103" data-name="Grupo 103" transform="translate(-455 -151)">
+    <rect id="Retângulo_56" data-name="Retângulo 56" width="155" height="35" rx="17.5" transform="translate(522 151)" fill="#575757"/>
+    <rect id="Retângulo_57" data-name="Retângulo 57" width="115" height="35" rx="17.5" transform="translate(826 151)" fill="#575757"/>
+    <rect id="Retângulo_58" data-name="Retângulo 58" width="115" height="35" rx="17.5" transform="translate(1082 151)" fill="#575757"/>
+    <text id="E-COMMERCE" transform="translate(591 174)" fill="#fff" font-size="16" font-family="OpenSans, Open Sans"><tspan x="-51.477" y="0">E-COMMERCE</tspan></text>
+    <text id="_6_meses" data-name="6 meses" transform="translate(875 174)" fill="#fff" font-size="16" font-family="OpenSans, Open Sans"><tspan x="-31.555" y="0">6 MESES</tspan></text>
+    <text id="GERAL" transform="translate(1131 174)" fill="#fff" font-size="16" font-family="OpenSans, Open Sans"><tspan x="-24.434" y="0">GERAL</tspan></text>
+    <text id="SETOR" transform="translate(480 174)" fill="#fff" font-size="16" font-family="OpenSans-Semibold, Open Sans" font-weight="600"><tspan x="-24.641" y="0">SETOR</tspan></text>
+    <text id="PERÍODO" transform="translate(782 174)" fill="#fff" font-size="16" font-family="OpenSans-Semibold, Open Sans" font-weight="600"><tspan x="-35.406" y="0">PERÍODO</tspan></text>
+    <text id="FILTRO" transform="translate(1038 174)" fill="#fff" font-size="16" font-family="OpenSans-Semibold, Open Sans" font-weight="600"><tspan x="-26.813" y="0">FILTRO</tspan></text>
+    <path id="Subtração_1" data-name="Subtração 1" d="M-253.5,9h0L-259,2h1.571l3.929,5,3.929-5H-248l-5.5,7Z" transform="translate(910 163)" fill="#fff"/>
+    <path id="Subtração_2" data-name="Subtração 2" d="M5.5,7h0L0,0H1.571L5.5,5,9.429,0H11L5.5,7Z" transform="translate(915 165)" fill="#fff"/>
+    <path id="Subtração_3" data-name="Subtração 3" d="M5.5,7h0L0,0H1.571L5.5,5,9.429,0H11L5.5,7Z" transform="translate(1171 165)" fill="#fff"/>
+  </g>
+</svg>

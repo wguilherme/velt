@@ -12,6 +12,19 @@ p {
 .filter {
   background-color: #727272;
   height: 70px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.filter section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.filter img {
+  text-align: left;
 }
 
 .content {
