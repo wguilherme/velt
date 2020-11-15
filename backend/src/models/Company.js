@@ -22,7 +22,7 @@ const companySchema = mongoose.Schema({
         required: true
     },
 
-    social:{
+    info:{
         facebook:{
             type: String
         },
@@ -35,9 +35,19 @@ const companySchema = mongoose.Schema({
         youtube:{
             type: String
         },
+        reclameaqui:{
+            type: String
+        },
+        ativo:{
+            type: String
+        },
     },
 
     financial:{
+        type: Object,
+    },
+
+    social:{
         type: Object,
     },
 
@@ -46,11 +56,11 @@ const companySchema = mongoose.Schema({
     },
 
     rankings: {
-        financial: {Type: Number},
-        social: {Type: Number},
-        comercial: {Type: Number},
-        // governança: {Type: Number},
-        extra: {Type: Number},
+        financial: {type: Number},
+        social: {type: Number},
+        comercial: {type: Number},
+        // governança: {type: Number},
+        extra: {type: Number},
     },
 
     createdAt: {

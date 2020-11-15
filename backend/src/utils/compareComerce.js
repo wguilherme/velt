@@ -1,8 +1,8 @@
 
-let compareFinance = async (company1, company2) => {
+let compareComerce = async (company1, company2) => {
 
-    const value1 = company1.financial.closeValue;
-    const value2 = company2.financial.closeValue;
+    const value1 = company1.comercial.nc;
+    const value2 = company2.comercial.nc;
 
     const companiesRanking = {
         company1,
@@ -23,4 +23,4 @@ let compareFinance = async (company1, company2) => {
 
 }
 
-export default compareFinance
+export default compareComerce
