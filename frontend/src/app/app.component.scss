@@ -1,0 +1,96 @@
+.menu {
+  background-color: #21222c;
+  height: 70px;
+}
+
+.menu section {
+  max-width: 900px;
+
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.menu img {
+  height: 70px;
+}
+.menu button {
+  border: none;
+  background-color: #01a0dc;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+// .filter {
+//   background-color: #727272;
+//   height: 70px;
+// }
+
+// .content {
+//   padding-top: 50px;
+//   background-color: #1e1f28;
+//   height: 100vh;
+// }
+
+.content section:first-child {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cartao {
+  background-color: #313240;
+  border-radius: 8px;
+
+  padding: 30px;
+}
+
+.cartao h3 {
+  color: white;
+}
+
+.cartao-header button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.cartao-content {
+  color: white;
+}
+
+cartao-content p {
+  text-align: left;
+}
+
+.cartao-content span {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.cartao-trend {
+  color: white;
+  text-align: left;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 5px 0;
+  border-radius: 8px;
+
+  line-height: 1em;
+  margin-bottom: 10px;
+}
+
+.financeiro {
+  background-color: #00a600;
+}
+.social {
+  background-color: #1018ac;
+}
+.comercial {
+  background-color: #d65000;
+}
