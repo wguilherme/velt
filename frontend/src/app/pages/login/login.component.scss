@@ -1,0 +1,37 @@
+div:first-child {
+  height: 100vh;
+
+  background-color: #14141a;
+
+  display: flex;
+  justify-content:center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+
+img {
+  width: 230px;
+}
+
+input {
+  margin-bottom:20px;
+  height: 40px;
+  width: 350px;
+  padding: 5px 15px;
+  border-radius: 8px;
+
+  border: none;
+}
+button {
+  border: none;
+  background-color: #00AEE8;
+  width: 350px;
+  height: 40px;
+  border-radius: 8px;
+
+  font-weight: bold;
+  color: white;
+  text-decoration: uppercase;
+}
