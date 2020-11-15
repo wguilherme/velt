@@ -15,7 +15,7 @@ let compareSocial = async (company1, company2) => {
     }
 
 
-    if(value1 > value2){
+    if(perctg1 > perctg2){
     companiesRanking.company1 = 1;
     companiesRanking.company2 = 2;
 

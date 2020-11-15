@@ -7,6 +7,7 @@ import compareComerce from "../../utils/compareComerce"
 import getFinancial from "../../utils/getFinancial"
 import getSocial from "../../utils/getSocial"
 import getComercial from "../../utils/getComercial"
+import compareNotaGeral from "../../utils/compareNotaGeral"
 
 // const User = require('../../models/User')
 
@@ -121,6 +122,11 @@ module.exports = {
         company1.rankings.comercial.variation = result3.perctg1;
         company2.rankings.comercial.value = result3.company2;
         company2.rankings.comercial.variation = result3.perctg2;
+
+        const result4 = await compareNotaGeral(company1,company2);
+
+        company1.rankings.notaGeral = result4.nota1;
+        company2.rankings.notaGeral = result4.nota2;
 
         // save company
         await company1.save();

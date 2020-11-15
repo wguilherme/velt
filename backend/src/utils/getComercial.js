@@ -14,7 +14,8 @@ let getComercial = async (link) => {
             old:{}
         }
         const itens = []
-        await document.querySelectorAll('.jlKsPk span').forEach(item => itens.push(item.textContent))
+        const docs = await document.querySelectorAll('.jlKsPk span')
+        docs.forEach(item => itens.push(item.textContent))
     
         myObj.new['rr'] = itens[0]
         myObj.new['vfn'] = itens[1]
