@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 
 //http
 import { HttpClientModule } from '@angular/common/http';
+import { CompanyDetailComponent } from './pages/company-detail/company-detail.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CompanyDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
