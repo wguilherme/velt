@@ -87,6 +87,13 @@ module.exports = {
         return res.status(status).json(company);
     },
 
+    delete: async (req, res) => {
+        const company = await Company.findByIdAndDelete(req.params.id);
+        const status = company ? 200 : 400;
+        return res.status(status).json({message: 'The company has been deleted'});
+    },
+
+
 
 
     compare: async(req, res)=> {
