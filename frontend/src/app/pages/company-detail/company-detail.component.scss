@@ -1,0 +1,53 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+}
+
+body {
+  background-color: #1e1f28;
+}
+
+.content {
+  padding-top: 50px;
+  background-color: #1e1f28;
+  height: 100vh;
+}
+
+.content section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card-detail {
+  background-color: #2b2c39;
+  padding: 20px;
+  border-radius: 8px;
+
+  margin-top: 20px;
+}
+.card-detail strong {
+  color: white;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card-detail ul {
+  color: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-detail ul li {
+}
+
+.card-detail ul li span {
+  font-weight: bold;
+}
+
+

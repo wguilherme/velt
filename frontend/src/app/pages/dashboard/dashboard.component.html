@@ -1,0 +1,95 @@
+<div class="menu">
+  <section>
+    <img class="img-fluid" src="https://velt.com/img/velt_partners-negativo-rgb-01.svg" alt="Logotipo Velt">
+    <button>
+      Adicionar empresa
+    </button>
+  </section>
+
+</div>
+<div class="filter"></div>
+<div class="content">
+  <section>
+    <div class="row">
+      <div *ngFor="let company of companies" class="col-sm-4">
+
+        <div class="cartao" routerLink="/company/{{company._id}}">
+          <section>
+            <button>Comparar</button>
+            <button>Seguir</button>
+          </section>
+
+
+          <h3>{{company.name}}</h3>
+          <div class="cartao-content">
+
+            <div>
+              <p>
+                Nota geral
+              </p>
+              <h3>93</h3>
+            </div>
+
+            <div>
+              <div>
+                <img src="https://via.placeholder.com/25x25">
+                <img src="https://via.placeholder.com/25x25">
+                <img src="https://via.placeholder.com/25x25">
+              </div>
+
+              <div>
+                <img src="https://via.placeholder.com/25x25">
+                <img src="https://via.placeholder.com/25x25">
+                <img src="https://via.placeholder.com/25x25">
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="cartao-trends">
+
+            <div class="cartao-trend financeiro">
+
+              <div><img src="/assets/financeiro.svg" alt=""></div>
+              <div>
+                <span>+32%<br>Financeiro</span>
+              </div>
+              <div>
+                <h3><span style="font-size: 16px;">#</span>2</h3>
+              </div>
+
+            </div>
+
+            <div class="cartao-trend social">
+
+              <div><img src="/assets/social.svg" alt=""></div>
+              <div>
+                <span>+32%<br>Social</span>
+              </div>
+              <div>
+                <h3><span style="font-size: 16px;">#</span>2</h3>
+              </div>
+
+            </div>
+
+            <div class="cartao-trend comercial">
+
+              <div><img src="/assets/comercial.svg"alt=""></div>
+              <div>
+                <span>+32%<br>Comercial</span>
+              </div>
+              <div>
+                <h3><span style="font-size: 16px;">#</span>2</h3>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

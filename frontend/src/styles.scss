@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+.menu {
+  background-color: #21222c;
+  height: 70px;
+}
+
+.menu section {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.menu img {
+  height: 70px;
+}
+.menu button {
+  border: none;
+  background-color: #01a0dc;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+
+  height: 40px;
+  padding: 0 20px;
+
+
+}
