@@ -49,7 +49,9 @@ const petSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-    }
+    },
+
+
 });
 const Pet = mongoose.model("Pet", petSchema);
 

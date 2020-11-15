@@ -18,6 +18,9 @@ router.get("/companies/compare/:id1/:id2", Company.compare);
 // update route
 router.post("/companies/update", Company.update);
 
+// update route
+router.delete("/companies/:id", Company.delete);
+
 
 
 
