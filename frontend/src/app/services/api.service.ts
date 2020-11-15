@@ -12,11 +12,12 @@ export class ApiService {
 
   apiBaseUrl =  "http://localhost:3005"
 
-  companies:any = [];
-
   constructor(private http: HttpClient) { }
 
    getCompanies(){
     return this.http.get(`${this.apiBaseUrl}/companies`)
+  }
+   getCompany(id){
+    return this.http.get(`${this.apiBaseUrl}/companies/${id}`)
   }
 }

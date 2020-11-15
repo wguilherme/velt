@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-company-detail',
@@ -8,10 +9,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CompanyDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  companyId;
+  company: any = {};
 
-  ngOnInit(): void {
-    this.route.params.subscribe( params => console.log(params.id));
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: ApiService
+    ) { }
+
+ ngOnInit(){
+    this.route.params.subscribe( params => this.companyId = params.id);
+
+
+
+    this.apiService.getCompany(this.companyId).subscribe(data => this.company = data);
+
+    // this.apiService.getCompanies().subscribe(data => this.company = data);
+
+    setTimeout(() => {
+      console.log(this.companyId);
+      console.log('return', this.company);
+    }, 1000)
   }
 
 

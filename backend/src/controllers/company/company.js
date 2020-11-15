@@ -34,7 +34,7 @@ module.exports = {
     },
 
     update: async (req, res) => {
-            
+
         try {
             const mercadoLivre = {
                 nome: "Mercado Livre",
@@ -72,6 +72,12 @@ module.exports = {
         const company = await Company.find();
         res.json(company);
 
+        const status = company ? 200 : 400;
+        return res.status(status).json(company);
+    },
+
+    show: async (req, res) => {
+        const company = await Company.findById(req.params.id);
         const status = company ? 200 : 400;
         return res.status(status).json(company);
     },
