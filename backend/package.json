@@ -2,7 +2,6 @@
   "name": "authjwtmongo",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start-heroku": "node --experimental-modules src/app.js",
     "start": "env-cmd -f ./.env node src/app.js",
@@ -14,6 +13,7 @@
     "env-cmd": "^10.0.1",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "google-trends-api": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.2",
     "mongoose": "^5.8.9",
