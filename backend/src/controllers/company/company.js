@@ -36,14 +36,16 @@ module.exports = {
     update: async (req, res) => {
             
         try {
-
+            // Filter
             const fromDate = new Date('2019-10-01')
             const toDate = new Date('2020-10-01')
             
+            // getAttributes
             const testFinancial = await getFinancial(req.body.name,fromDate,toDate)
             const testeSocial = await getSocial(req.body.name,fromDate,toDate)
             const testComercial = await getComercial('https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/')
 
+            // send response
             res.status(201).send({ testeSocial,testFinancial,testComercial });
 
         } catch (error) {

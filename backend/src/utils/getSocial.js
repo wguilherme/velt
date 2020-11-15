@@ -15,6 +15,8 @@ let socialGet = async (name,fromDate,toDate) => {
         }
     })
 
+    return testeSocial[testeSocial.length - 1]
+
     return{
         recent: testeSocial[testeSocial.length - 1],
         old: testeSocial[0]

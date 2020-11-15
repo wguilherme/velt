@@ -7,7 +7,7 @@ let getComercial = async (link) => {
     const page = await browser.newPage()
     await page.goto(link)
 
-    const testComercial = await page.evaluate(() => {
+    const testComercial = await page.evaluate(async () => {
     
         const myObj = {}
         const itens = []
@@ -18,7 +18,7 @@ let getComercial = async (link) => {
         myObj['is'] = itens[2]
         myObj['nc'] = itens[3]
     
-        return myObj
+        return await myObj
     })
 
     return testComercial

@@ -16,6 +16,8 @@ let financialGet = async (name,fromDate,toDate) => {
         }
     })
 
+    return testFinancial[2]
+
     return{
         recent: testFinancial[2],
         old: testFinancial[testFinancial.length - 1]
