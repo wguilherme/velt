@@ -4,8 +4,8 @@ let compareNotaGeral = async (company1, company2) => {
     const valueF2 = company2.financial.new.closeValue;
     const valueS1 = company1.social.new.value;
     const valueS2 = company2.social.new.value;
-    const valueC1 = company1.comercial.new.nc;
-    const valueC2 = company2.comercial.new.nc;
+    const valueC1 = Number(company1.comercial.new.nc);
+    const valueC2 = Number(company2.comercial.new.nc);
 
     let value1 = valueF1+valueS1+valueC1
     let value2 = valueF2+valueS2+valueC2
@@ -41,12 +41,26 @@ let compareNotaGeral = async (company1, company2) => {
     const nota1 = (value1 + var1)/2
     const nota2 = (value2 + var2)/2 
 
-    const notaGeral = {
-        nota1,
-        nota2,
+    let rank1 = 0
+    let rank2 = 0
+
+    if(nota1 > nota2){
+        rank1 = 1
+        rank2 = 2
+    }
+    else{
+        rank1 = 2
+        rank2 = 1
     }
 
-    return notaGeral;
+    const notageral = {
+        nota1,
+        nota2,
+        rank1,
+        rank2
+    }
+
+    return notageral;
 
 }
 

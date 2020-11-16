@@ -1,5 +1,4 @@
 import puppeteer from 'puppeteer'
-import {format} from 'date-fns'
 
 let getComercial = async (link) => {
 
@@ -8,14 +7,15 @@ let getComercial = async (link) => {
     await page.goto(link)
 
     const testComercial = await page.evaluate(async () => {
-    
+        
+        const itens = []
+        const docs = await document.querySelectorAll('.jlKsPk span')
+        await docs.forEach(item => itens.push(item.textContent))
+
         const myObj = {
             new:{},
             old:{}
         }
-        const itens = []
-        const docs = await document.querySelectorAll('.jlKsPk span')
-        docs.forEach(item => itens.push(item.textContent))
     
         myObj.new['rr'] = itens[0]
         myObj.new['vfn'] = itens[1]
@@ -27,10 +27,10 @@ let getComercial = async (link) => {
         myObj.old['is'] = '90.5%'
         myObj.old['nc'] = '7.2'
     
-        return await myObj
+        return myObj
     })
 
-    return await testComercial
+    return testComercial
 
 }
 

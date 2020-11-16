@@ -125,12 +125,16 @@ module.exports = {
 
         const result4 = await compareNotaGeral(company1,company2);
 
-        company1.rankings.notaGeral = result4.nota1;
-        company2.rankings.notaGeral = result4.nota2;
+        company1.rankings.geral.nota = result4.nota1;
+        company1.rankings.geral.rank = result4.rank1;
+        company2.rankings.geral.nota = result4.nota2;
+        company2.rankings.geral.rank = result4.rank2;
 
+        res.send(company1)
+        
         // save company
-        await company1.save();
-        await company2.save();
+        // await company1.save();
+        // await company2.save();
             
 
         res.status(200).json({message: "Ranking atualizado."});

@@ -56,7 +56,10 @@ const companySchema = mongoose.Schema({
     },
 
     rankings: {
-        notageral:{type: Number},
+        geral:{
+            nota:{type: Number},
+            rank:{type: Number}
+        },
         financial: {
             value: {type: Number},
             variation: {type: Number},
