@@ -12,6 +12,9 @@ import { CompanyDetailComponent } from './pages/company-detail/company-detail.co
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 
+
+import { NgxEchartsModule } from 'ngx-echarts'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,10 @@ import { LoginComponent } from './pages/login/login.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
 
 
 
