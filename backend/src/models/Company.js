@@ -7,7 +7,7 @@ const companySchema = mongoose.Schema({
     },
 
     cnpj: {
-        type: Number,
+        type: String,
         required: true
     },
 

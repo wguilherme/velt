@@ -133,8 +133,8 @@ module.exports = {
         res.send(company1)
         
         // save company
-        // await company1.save();
-        // await company2.save();
+        await company1.save();
+        await company2.save();
             
 
         res.status(200).json({message: "Ranking atualizado."});
